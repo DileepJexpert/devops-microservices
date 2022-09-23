@@ -1,6 +1,17 @@
-hi
+To start kafka first we need to start zookeeper , java need to be installed on system
+command to start zookeeper:
 
+bin/zookeeper-server-start.sh config/zookeeper.properties
 
+or depends on where we are currently on cli
+
+./zookeeper-server-start.sh ../config/zookeeper.properties
+
+open config/zookeeper.properties file, you should see the clientPort property set to 2181, which is the port that your Zookeeper server is currently 
+listening.
+
+# the port at which the clients will connect
+clientPort=2181
 
 Topic create on mac 
 
