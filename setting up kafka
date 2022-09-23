@@ -44,3 +44,44 @@ listeners=PLAINTEXT://:9092
 
 # A comma separated list of directories under which to store log files
 log.dirs=/tmp/kafka-logs
+
+
+Copy the config/server.properties file and make 3 files for each server instance:
+
+ config/server.properties config/server.1.properties
+ config/server.properties config/server.2.properties
+ config/server.properties config/server.3.properties
+
+
+server.1.properties
+
+broker.id=1
+listeners=PLAINTEXT://:9093
+log.dirs=/tmp/kafka-logs1
+server.2.properties
+
+broker.id=2
+listeners=PLAINTEXT://:9094
+log.dirs=/tmp/kafka-logs2
+server.3.properties
+
+broker.id=3
+listeners=PLAINTEXT://:9095
+log.dirs=/tmp/kafka-logs3
+Create the log directories that we configured:
+
+mkdir /tmp/kafka-logs1
+mkdir /tmp/kafka-logs2
+mkdir /tmp/kafka-logs3
+
+
+we  start the broker instances. Run t three commands on different terminal sessions:
+
+bin/kafka-server-start.sh config/server.1.properties
+bin/kafka-server-start.sh config/server.2.properties
+bin/kafka-server-start.sh config/server.3.properties
+
+
+now create topic on all brokers
+
+bin/kafka-console-producer.sh --broker-list localhost:9093,localhost:9094,localhost:9095 --topic my-kafka-topic
