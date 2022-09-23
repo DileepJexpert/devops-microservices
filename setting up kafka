@@ -28,3 +28,19 @@ List topic
 
 
 ./kafka-topics.sh --describe --topic my-kafka-topic --bootstrap-server localhost:9092
+
+
+Starting the Kafka Brokers cluster
+
+However, there are three properties that have to be unique for each broker instance:
+
+File: kafka_2.13-3.0.0/config/server.properties
+
+# The id of the broker. This must be set to a unique integer for each broker.
+broker.id=0
+
+# The address the socket server listens on. It will get the value returned from 
+listeners=PLAINTEXT://:9092
+
+# A comma separated list of directories under which to store log files
+log.dirs=/tmp/kafka-logs
