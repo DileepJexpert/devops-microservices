@@ -27,7 +27,7 @@ List topic
 ./kafka-topics.sh --list --bootstrap-server localhost:9092
 
 
-./kafka-topics.sh --describe --topic my-kafka-topic --bootstrap-server localhost:9092
+./kafka-topics.sh --describe --topic account-created-events --bootstrap-server localhost:9092
 
 
 Starting the Kafka Brokers cluster
